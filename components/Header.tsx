@@ -10,7 +10,7 @@ const navCategories: Category[] = [
   { id: 'about', label: 'About', href: '#about', icon: <UserIcon /> },
   { id: 'skills', label: 'Skills', href: '#skills', icon: <CodeIcon /> },
   { id: 'projects', label: 'Projects', href: '#projects', icon: <FolderKanbanIcon /> },
-  { id: 'experience', label: 'Education', href: '#experience', icon: <GraduationCapIcon /> },
+  { id: 'education', label: 'Education', href: '#education', icon: <GraduationCapIcon /> },
   { id: 'contact', label: 'Contact', href: '#contact', icon: <PhoneIcon /> },
 ];
 
