@@ -15,7 +15,7 @@ export default {
                 foreground: "var(--foreground)",
             },
             fontFamily: {
-                sans: ['Outfit', 'sans-serif'],
+                sans: ['"Plus Jakarta Sans"', 'sans-serif'],
             },
             animation: {
                 spotlight: "spotlight 2s ease .75s 1 forwards",
