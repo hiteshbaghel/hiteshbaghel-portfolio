@@ -20,18 +20,18 @@ const Hero: React.FC = () => {
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 className="max-w-4xl z-10 relative"
             >
-                <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
+                <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-900 to-neutral-600 dark:from-neutral-50 dark:to-neutral-400 bg-opacity-50">
                     {portfolioData.name}
                 </h1>
-                <p className="mt-4 text-lg md:text-xl text-neutral-300 max-w-lg mx-auto">
+                <p className="mt-4 text-lg md:text-xl text-neutral-600 dark:text-neutral-300 max-w-lg mx-auto">
                     {portfolioData.title}
                 </p>
 
-                <h2 className="mt-8 text-2xl sm:text-3xl md:text-4xl font-bold text-neutral-200">
+                <h2 className="mt-8 text-2xl sm:text-3xl md:text-4xl font-bold text-neutral-800 dark:text-neutral-200">
                     I build elegant and efficient web applications.
                 </h2>
 
-                <p className="mt-6 max-w-2xl mx-auto text-base md:text-lg text-neutral-400 leading-relaxed">
+                <p className="mt-6 max-w-2xl mx-auto text-base md:text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
                     {portfolioData.description}
                 </p>
 

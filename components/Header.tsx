@@ -59,11 +59,13 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: 'easeOut', delay: 0.2 }}
-      className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4"
+      className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none"
     >
       <div className={`
-        flex items-center justify-between px-4 py-2 rounded-full transition-all duration-300
-        ${isScrolled ? 'bg-white/80 dark:bg-black/50 backdrop-blur-xl shadow-lg border border-slate-200/50 dark:border-white/10 w-full max-w-5xl' : 'bg-transparent w-full max-w-7xl'}
+        pointer-events-auto flex items-center justify-between px-4 py-2 rounded-full transition-all duration-300
+        ${isScrolled
+          ? 'bg-white/80 dark:bg-black/50 backdrop-blur-xl shadow-lg border border-slate-200/50 dark:border-white/10 w-full max-w-5xl'
+          : 'bg-white/60 dark:bg-transparent backdrop-blur-md border border-transparent dark:border-transparent w-full max-w-7xl'}
       `}>
         <motion.a
           href="#"
@@ -98,7 +100,7 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 md:gap-3">
           <button
             onClick={toggleTheme}
             className="p-2 rounded-full bg-slate-100 dark:bg-white/10 text-slate-600 dark:text-neutral-300 hover:bg-slate-200 dark:hover:bg-white/20 transition-colors"
