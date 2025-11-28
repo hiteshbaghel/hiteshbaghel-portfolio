@@ -73,9 +73,6 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
           whileTap={{ scale: 0.95 }}
         >
           <Logo className="w-8 h-8 md:w-10 md:h-10" />
-          <span className="hidden sm:block font-bold text-lg tracking-tight text-slate-800 dark:text-neutral-200">
-            {portfolioData.name}
-          </span>
         </motion.a>
 
         <nav className="hidden md:flex items-center gap-1 bg-slate-100/50 dark:bg-white/5 rounded-full px-2 py-1 border border-slate-200/50 dark:border-white/5 backdrop-blur-sm">
@@ -85,8 +82,8 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
               href={link.href}
               onClick={(e) => { e.preventDefault(); handleLinkClick(link.href); }}
               className={`relative px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${activeSectionId === link.id
-                  ? 'text-slate-900 dark:text-white'
-                  : 'text-slate-600 dark:text-neutral-400 hover:text-slate-900 dark:hover:text-neutral-200'
+                ? 'text-slate-900 dark:text-white'
+                : 'text-slate-600 dark:text-neutral-400 hover:text-slate-900 dark:hover:text-neutral-200'
                 }`}
             >
               {activeSectionId === link.id && (
