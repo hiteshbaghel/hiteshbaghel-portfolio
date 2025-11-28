@@ -14,6 +14,9 @@ export default {
                 background: "var(--background)",
                 foreground: "var(--foreground)",
             },
+            fontFamily: {
+                sans: ['Outfit', 'sans-serif'],
+            },
             animation: {
                 spotlight: "spotlight 2s ease .75s 1 forwards",
             },
