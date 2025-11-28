@@ -3,6 +3,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 export const CustomCursor = () => {
     const [isHovering, setIsHovering] = useState(false);
+    const [isVisible, setIsVisible] = useState(false);
 
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
@@ -13,6 +14,23 @@ export const CustomCursor = () => {
     const cursorY = useSpring(mouseY, springConfig);
 
     useEffect(() => {
+        // Only show on larger screens/non-touch devices
+        const checkVisibility = () => {
+            if (window.innerWidth > 768 && window.matchMedia("(pointer: fine)").matches) {
+                setIsVisible(true);
+            } else {
+                setIsVisible(false);
+            }
+        };
+
+        checkVisibility();
+        window.addEventListener('resize', checkVisibility);
+        return () => window.removeEventListener('resize', checkVisibility);
+    }, []);
+
+    useEffect(() => {
+        if (!isVisible) return;
+
         const moveCursor = (e: MouseEvent) => {
             mouseX.set(e.clientX);
             mouseY.set(e.clientY);
@@ -52,7 +70,9 @@ export const CustomCursor = () => {
             const existingStyle = document.getElementById('custom-cursor-style');
             if (existingStyle) existingStyle.remove();
         };
-    }, []);
+    }, [isVisible]);
+
+    if (!isVisible) return null;
 
     return (
         <motion.div

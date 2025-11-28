@@ -5,7 +5,6 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Experience from './components/Experience';
-import Education from './components/Education';
 import Achievements from './components/Achievements';
 import Certifications from './components/Certifications';
 import Contact from './components/Contact';
@@ -73,7 +72,6 @@ const App: React.FC = () => {
           <Skills />
           <Projects />
           <Experience />
-          <Education />
           <Achievements />
           <Certifications />
           <Contact />

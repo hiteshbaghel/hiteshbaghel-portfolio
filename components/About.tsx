@@ -1,7 +1,6 @@
 import React from 'react';
 import { portfolioData } from '../constants';
 import Section from './Section';
-import { Card, CardContent } from './ui/Card';
 import { motion, Variants } from 'framer-motion';
 
 const About: React.FC = () => {
@@ -32,61 +31,53 @@ const About: React.FC = () => {
 
   return (
     <Section id="about" title="About Me">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="max-w-4xl mx-auto"
-      >
-        <Card className="border-0 bg-transparent shadow-none hover:shadow-none dark:bg-transparent dark:hover:shadow-none">
-          <CardContent className="p-0">
-            <div className="relative p-1 rounded-3xl bg-gradient-to-br from-indigo-500/20 via-purple-500/20 to-pink-500/20 dark:from-indigo-500/30 dark:via-purple-500/30 dark:to-pink-500/30 backdrop-blur-sm">
-              {/* Animated shimmer effect */}
-              <div className="absolute inset-[-3px] rounded-[1.35rem] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)] opacity-40 dark:opacity-60 animate-pulse-slow" />
-              <div className="relative p-8 md:p-10 rounded-[1.25rem] bg-slate-50/90 dark:bg-neutral-950/90">
-                <motion.p
-                  className="text-lg md:text-xl text-slate-700 dark:text-neutral-300 leading-relaxed text-center font-medium max-w-3xl mx-auto"
-                  variants={containerVariants}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.2 }}
-                >
-                  {summaryWords.map((word, index) => (
-                    <motion.span
-                      key={index}
-                      variants={wordVariants}
-                      className="inline-block"
-                    >
-                      {word}&nbsp;
-                    </motion.span>
-                  ))}
-                </motion.p>
+      <div className="relative max-w-4xl mx-auto">
+        {/* Subtle background glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-indigo-500/10 dark:bg-indigo-500/20 rounded-full blur-3xl -z-10" />
 
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5, duration: 0.5 }}
-                  className="mt-10 flex flex-wrap justify-center gap-4"
-                >
-                  <a
-                    href="#contact"
-                    className="px-8 py-3 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold hover:opacity-90 transition-opacity"
-                  >
-                    Let's Connect
-                  </a>
-                  <a
-                    href="#projects"
-                    className="px-8 py-3 rounded-full border border-slate-200 dark:border-neutral-700 hover:bg-slate-100 dark:hover:bg-neutral-800 text-slate-900 dark:text-white font-semibold transition-colors"
-                  >
-                    View Work
-                  </a>
-                </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8 }}
+          className="text-center"
+        >
+          <motion.p
+            className="text-lg md:text-2xl text-slate-700 dark:text-neutral-300 leading-relaxed font-light"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
+            {summaryWords.map((word, index) => (
+              <motion.span
+                key={index}
+                variants={wordVariants}
+                className="inline-block"
+              >
+                {word}&nbsp;
+              </motion.span>
+            ))}
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.5 }}
+            className="mt-12 flex flex-wrap justify-center gap-6"
+          >
+            <a
+              href="#contact"
+              className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full bg-slate-900 dark:bg-white px-8 font-medium text-white dark:text-slate-900 transition-all duration-300 hover:w-40 hover:bg-slate-800 dark:hover:bg-neutral-200"
+            >
+              <span className="mr-2">Let's Connect</span>
+              <div className="absolute right-0 translate-x-full opacity-0 transition-all duration-300 group-hover:-translate-x-4 group-hover:opacity-100">
+                →
               </div>
-            </div>
-          </CardContent>
-        </Card>
-      </motion.div>
+            </a>
+          </motion.div>
+        </motion.div>
+      </div>
     </Section>
   );
 };
