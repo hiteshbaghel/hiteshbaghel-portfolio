@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Logo } from './Logo';
 
 export const Preloader = ({ onComplete }: { onComplete: () => void }) => {
     const [count, setCount] = useState(0);
@@ -41,35 +40,28 @@ export const Preloader = ({ onComplete }: { onComplete: () => void }) => {
             }}
             className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-slate-50 dark:bg-neutral-950 text-slate-900 dark:text-white overflow-hidden"
         >
-            <div className="flex items-center gap-4 md:gap-10 mb-8">
+            <div className="flex items-center gap-4 md:gap-8 mb-8">
                 <motion.span
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.2, duration: 0.5 }}
-                    className="text-2xl md:text-4xl font-light tracking-wider text-slate-500 dark:text-neutral-400"
+                    className="text-3xl md:text-5xl font-light tracking-wider text-slate-800 dark:text-neutral-300"
                 >
                     Think
                 </motion.span>
 
                 <motion.div
-                    initial={{ scale: 0, rotate: -180 }}
-                    animate={{ scale: 1, rotate: 0 }}
-                    transition={{ duration: 0.8, ease: "backOut" }}
-                    className="relative"
-                >
-                    <motion.div
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                    >
-                        <Logo className="w-16 h-16 md:w-24 md:h-24" />
-                    </motion.div>
-                </motion.div>
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ delay: 0.4, duration: 0.5 }}
+                    className="h-2 w-2 rounded-full bg-slate-800 dark:bg-neutral-300"
+                />
 
                 <motion.span
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.4, duration: 0.5 }}
-                    className="text-2xl md:text-4xl font-light tracking-wider text-slate-500 dark:text-neutral-400"
+                    transition={{ delay: 0.6, duration: 0.5 }}
+                    className="text-3xl md:text-5xl font-light tracking-wider text-slate-800 dark:text-neutral-300"
                 >
                     Build
                 </motion.span>
