@@ -12,7 +12,11 @@ import Footer from './components/Footer';
 import { MouseSpotlight } from './components/ui/MouseSpotlight';
 import { SmoothScroll } from './components/SmoothScroll';
 
+import { AnimatePresence } from 'framer-motion';
+import { Preloader } from './components/Preloader';
+
 const App: React.FC = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const [theme, setTheme] = useState(() => {
     if (typeof window !== 'undefined' && localStorage.getItem('theme')) {
       return localStorage.getItem('theme') as 'light' | 'dark';
@@ -33,27 +37,32 @@ const App: React.FC = () => {
   }, [theme]);
 
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
+    if (!isLoading) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
       });
-    }, {
-      threshold: 0.1,
-    });
 
-    const elements = document.querySelectorAll('.animate-on-scroll');
-    elements.forEach(el => observer.observe(el));
+      const elements = document.querySelectorAll('.animate-on-scroll');
+      elements.forEach(el => observer.observe(el));
 
-    return () => {
-      elements.forEach(el => observer.unobserve(el));
-    };
-  }, []);
+      return () => {
+        elements.forEach(el => observer.unobserve(el));
+      };
+    }
+  }, [isLoading]);
 
   return (
     <SmoothScroll>
+      <AnimatePresence mode="wait">
+        {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
+      </AnimatePresence>
       <div className="font-sans antialiased text-slate-800 dark:text-neutral-300 transition-colors duration-300 min-h-screen flex flex-col">
         <MouseSpotlight />
         <Header theme={theme} toggleTheme={() => setTheme(theme === 'light' ? 'dark' : 'light')} />
