@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -9,11 +8,9 @@ import Experience from './components/Experience';
 import Achievements from './components/Achievements';
 import Certifications from './components/Certifications';
 import Contact from './components/Contact';
-// Fix: Import the Footer component to be used in the layout.
 import Footer from './components/Footer';
-
-
 import { MouseSpotlight } from './components/ui/MouseSpotlight';
+import { SmoothScroll } from './components/SmoothScroll';
 
 const App: React.FC = () => {
   const [theme, setTheme] = useState(() => {
@@ -25,8 +22,6 @@ const App: React.FC = () => {
     }
     return 'light';
   });
-
-
 
   useEffect(() => {
     const root = window.document.documentElement;
@@ -58,22 +53,23 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="font-sans antialiased text-slate-800 dark:text-neutral-300 transition-colors duration-300 min-h-screen flex flex-col">
-      <MouseSpotlight />
-      <Header theme={theme} toggleTheme={() => setTheme(theme === 'light' ? 'dark' : 'light')} />
-      <main className="flex-grow w-full">
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Experience />
-        <Achievements />
-        <Certifications />
-        <Contact />
-      </main>
-      {/* Fix: Add the Footer component to complete the page layout. */}
-      <Footer />
-    </div>
+    <SmoothScroll>
+      <div className="font-sans antialiased text-slate-800 dark:text-neutral-300 transition-colors duration-300 min-h-screen flex flex-col">
+        <MouseSpotlight />
+        <Header theme={theme} toggleTheme={() => setTheme(theme === 'light' ? 'dark' : 'light')} />
+        <main className="flex-grow w-full">
+          <Hero />
+          <About />
+          <Skills />
+          <Projects />
+          <Experience />
+          <Achievements />
+          <Certifications />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+    </SmoothScroll>
   );
 };
 
