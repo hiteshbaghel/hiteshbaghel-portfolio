@@ -57,7 +57,7 @@ const App: React.FC = () => {
 
   return (
     <div className="font-sans antialiased text-slate-800 dark:text-neutral-300 transition-colors duration-300 min-h-screen flex flex-col">
-      <Header />
+      <Header theme={theme} toggleTheme={() => setTheme(theme === 'light' ? 'dark' : 'light')} />
       <main className="flex-grow w-full">
         <Hero />
         <About />
