@@ -5,12 +5,13 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Experience from './components/Experience';
+import Education from './components/Education';
 import Achievements from './components/Achievements';
 import Certifications from './components/Certifications';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import { MouseSpotlight } from './components/ui/MouseSpotlight';
 import { SmoothScroll } from './components/SmoothScroll';
+import { CustomCursor } from './components/ui/CustomCursor';
 
 import { AnimatePresence } from 'framer-motion';
 import { Preloader } from './components/Preloader';
@@ -60,11 +61,11 @@ const App: React.FC = () => {
 
   return (
     <SmoothScroll>
+      <CustomCursor />
       <AnimatePresence mode="wait">
         {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
       </AnimatePresence>
       <div className="font-sans antialiased text-slate-800 dark:text-neutral-300 transition-colors duration-300 min-h-screen flex flex-col">
-        <MouseSpotlight />
         <Header theme={theme} toggleTheme={() => setTheme(theme === 'light' ? 'dark' : 'light')} />
         <main className="flex-grow w-full">
           <Hero />
@@ -72,6 +73,7 @@ const App: React.FC = () => {
           <Skills />
           <Projects />
           <Experience />
+          <Education />
           <Achievements />
           <Certifications />
           <Contact />
