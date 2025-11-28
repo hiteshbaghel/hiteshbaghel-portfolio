@@ -76,7 +76,7 @@ export const CustomCursor = () => {
 
     return (
         <motion.div
-            className="fixed top-0 left-0 w-4 h-4 bg-slate-900 dark:bg-white rounded-full pointer-events-none z-[9999] mix-blend-difference"
+            className="fixed top-0 left-0 w-4 h-4 bg-[#E8E0D0] dark:bg-white rounded-full pointer-events-none z-[9999]"
             style={{
                 x: cursorX,
                 y: cursorY,
