@@ -23,9 +23,14 @@ const Hero: React.FC = () => {
                 <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight text-slate-900 dark:text-white">
                     {portfolioData.name}
                 </h1>
-                <p className="mt-4 text-lg md:text-xl text-neutral-600 dark:text-neutral-300 max-w-lg mx-auto">
-                    {portfolioData.title}
-                </p>
+                <div className="mt-6 mb-2 relative inline-block">
+                    <svg className="absolute -top-3 -left-6 w-[calc(100%+48px)] h-[calc(100%+30px)] text-indigo-600 dark:text-indigo-400 pointer-events-none" viewBox="0 0 280 90" preserveAspectRatio="none" fill="none">
+                        <path d="M20,45 C20,15 70,5 140,5 C210,5 260,15 260,45 C260,75 210,85 140,85 C70,85 20,75 20,45 Z" stroke="currentColor" strokeWidth="2.5" />
+                    </svg>
+                    <p className="relative text-xl md:text-2xl font-bold text-slate-900 dark:text-white px-2">
+                        {portfolioData.title}
+                    </p>
+                </div>
 
                 <h2 className="mt-8 text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">
                     I build elegant and efficient <span className="text-indigo-600 dark:text-indigo-400">web applications.</span>
@@ -40,7 +45,7 @@ const Hero: React.FC = () => {
                         href="https://drive.google.com/file/d/15BeQ-bJ-wMXAycyCtUx4_CNuVqZUfHt8/view?usp=drive_link"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center w-full sm:w-auto px-8 py-3 text-base font-medium text-black bg-white border border-transparent rounded-full hover:bg-neutral-200 transition-all duration-300 transform hover:scale-105"
+                        className="inline-flex items-center justify-center w-full sm:w-auto px-8 py-3 text-base font-medium text-white bg-slate-900 dark:bg-white dark:text-black border border-transparent rounded-full hover:bg-slate-800 dark:hover:bg-neutral-200 transition-all duration-300 transform hover:scale-105"
                     >
                         <DownloadIcon className="w-5 h-5 mr-2" /> Resume
                     </a>
@@ -48,7 +53,7 @@ const Hero: React.FC = () => {
                         href={portfolioData.contact.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center w-full sm:w-auto px-8 py-3 text-base font-medium text-white bg-neutral-800 border border-neutral-700 rounded-full hover:bg-neutral-700 transition-all duration-300 transform hover:scale-105"
+                        className="inline-flex items-center justify-center w-full sm:w-auto px-8 py-3 text-base font-medium text-slate-900 dark:text-white bg-white dark:bg-neutral-800 border border-slate-200 dark:border-neutral-700 rounded-full hover:bg-slate-50 dark:hover:bg-neutral-700 transition-all duration-300 transform hover:scale-105"
                     >
                         <GithubIcon className="w-5 h-5 mr-2" /> GitHub
                     </a>
