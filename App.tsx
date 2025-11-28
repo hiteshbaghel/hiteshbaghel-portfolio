@@ -21,8 +21,8 @@ const App: React.FC = () => {
     if (typeof window !== 'undefined' && localStorage.getItem('theme')) {
       return localStorage.getItem('theme') as 'light' | 'dark';
     }
-    // Default to light mode if no preference is saved
-    return 'light';
+    // Default to dark mode if no preference is saved
+    return 'dark';
   });
 
   useEffect(() => {
@@ -32,6 +32,7 @@ const App: React.FC = () => {
     } else {
       root.classList.remove('dark');
     }
+    localStorage.setItem('theme', theme);
   }, [theme]);
 
   useEffect(() => {
