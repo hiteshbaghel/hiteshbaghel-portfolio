@@ -56,7 +56,7 @@ const Header: React.FC = () => {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: 'easeOut', delay: 0.2 }}
       className={`sticky top-0 z-50 transition-shadow duration-300 ${isScrolled ? 'bg-white/80 dark:bg-black/50 backdrop-blur-xl shadow-md dark:shadow-black/20 border-b border-slate-200/50 dark:border-neutral-800/50' : 'bg-transparent'}`}>
-      <div className="container mx-auto px-4 sm:px-6 md:px-12 flex justify-between items-center py-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4">
         <motion.a
           href="#"
           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}

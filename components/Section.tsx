@@ -9,12 +9,14 @@ interface SectionProps {
 const Section: React.FC<SectionProps> = ({ id, title, children }) => {
   return (
     <section id={id} className="py-20 md:py-24 overflow-hidden">
-      <div className="mb-12 animate-on-scroll">
-        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-neutral-100">
-          {title}
-        </h2>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-12 animate-on-scroll">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-neutral-100">
+            {title}
+          </h2>
+        </div>
+        {children}
       </div>
-      {children}
     </section>
   );
 };

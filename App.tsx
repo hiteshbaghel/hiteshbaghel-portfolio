@@ -56,9 +56,9 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="font-sans antialiased bg-slate-50 dark:bg-[#0A0A0A] text-slate-800 dark:text-neutral-300 transition-colors duration-300">
+    <div className="font-sans antialiased text-slate-800 dark:text-neutral-300 transition-colors duration-300 min-h-screen flex flex-col">
       <Header />
-      <main className="container mx-auto px-4 sm:px-6 md:px-12">
+      <main className="flex-grow w-full">
         <Hero />
         <About />
         <Skills />
