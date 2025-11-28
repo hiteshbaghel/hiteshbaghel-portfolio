@@ -5,7 +5,7 @@ export const Preloader = ({ onComplete }: { onComplete: () => void }) => {
     const [count, setCount] = useState(0);
 
     useEffect(() => {
-        const duration = 2500;
+        const duration = 1800;
         const steps = 100;
         const intervalTime = duration / steps;
 
