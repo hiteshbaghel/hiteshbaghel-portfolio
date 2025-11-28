@@ -13,6 +13,8 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 
+import { MouseSpotlight } from './components/ui/MouseSpotlight';
+
 const App: React.FC = () => {
   const [theme, setTheme] = useState(() => {
     if (typeof window !== 'undefined' && localStorage.getItem('theme')) {
@@ -57,6 +59,7 @@ const App: React.FC = () => {
 
   return (
     <div className="font-sans antialiased text-slate-800 dark:text-neutral-300 transition-colors duration-300 min-h-screen flex flex-col">
+      <MouseSpotlight />
       <Header theme={theme} toggleTheme={() => setTheme(theme === 'light' ? 'dark' : 'light')} />
       <main className="flex-grow w-full">
         <Hero />
