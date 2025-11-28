@@ -38,6 +38,9 @@ const App: React.FC = () => {
 
   useEffect(() => {
     if (!isLoading) {
+      // Scroll to top when loading finishes to ensure Hero section is visible
+      window.scrollTo(0, 0);
+
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
