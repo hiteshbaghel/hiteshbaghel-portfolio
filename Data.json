@@ -140,13 +140,33 @@
     }
   ],
   "achievements": [
-    "Google Cloud Arcade Facilitator Cohort 2 (2025) - Selected for facilitator program, mentoring peers in cloud-native application deployment.",
-    "ProjectExpo 4.0, MIT Ujjain (2025) - First Place Winner & Cash Prize for innovative project showcasing technical skills and problem-solving.",
-    "Codathon, MIT Ujjain – Recognized as Top Performer in competitive coding event demonstrating strong algorithmic thinking."
+    {
+      "title": "Google Cloud Arcade Facilitator Cohort 2 (2025)",
+      "description": "Selected for facilitator program, mentoring peers in cloud-native application deployment.",
+      "link": "https://www.skills.google/public_profiles/a68d064f-7134-45b0-b182-06a888a27fa1/badges/18572747"
+    },
+    {
+      "title": "ProjectExpo 4.0, MIT Ujjain (2025)",
+      "description": "First Place Winner & Cash Prize for innovative project showcasing technical skills and problem-solving."
+    },
+    {
+      "title": "Codathon, MIT Ujjain",
+      "description": "Recognized as Top Performer in competitive coding event demonstrating strong algorithmic thinking."
+    }
   ],
   "certifications": [
-    "C++ & Java, Database & MySQL - AK Soft",
-    "Java, Spring 6 & Spring Boot 3 – Telusko (Udemy)",
-    "Java Developer Internship - Codsoft"
+    {
+      "title": "C++ & Java, Database & MySQL",
+      "issuer": "AK Soft"
+    },
+    {
+      "title": "Java, Spring 6 & Spring Boot 3",
+      "issuer": "Telusko (Udemy)",
+      "link": "https://www.udemy.com/certificate/UC-4d3d0b0e-98d7-4c01-9aa8-b8505178543e/?utm_campaign=email&utm_medium=email&utm_source=sendgrid.com"
+    },
+    {
+      "title": "Java Developer Internship",
+      "issuer": "Codsoft"
+    }
   ]
 }

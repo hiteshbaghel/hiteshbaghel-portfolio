@@ -27,30 +27,6 @@ const Certifications: React.FC = () => {
     },
   };
 
-  const parseCertification = (certString: string) => {
-    // Split by " - " or " – " (en dash) to separate title and issuer
-    // We look for the last occurrence of the separator to be safe
-    const separators = [' - ', ' – '];
-    let splitIndex = -1;
-    let separatorLength = 0;
-
-    for (const sep of separators) {
-      const idx = certString.lastIndexOf(sep);
-      if (idx > splitIndex) {
-        splitIndex = idx;
-        separatorLength = sep.length;
-      }
-    }
-
-    if (splitIndex !== -1) {
-      const title = certString.substring(0, splitIndex).trim();
-      const issuer = certString.substring(splitIndex + separatorLength).trim();
-      return { title, issuer };
-    }
-
-    return { title: certString, issuer: 'Certification' };
-  };
-
   return (
     <Section id="certifications" title="Certifications">
       <motion.div
@@ -61,8 +37,6 @@ const Certifications: React.FC = () => {
         viewport={{ once: true, amount: 0.1 }}
       >
         {portfolioData.certifications.map((cert, index) => {
-          const { title, issuer } = parseCertification(cert);
-
           return (
             <motion.div
               key={index}
@@ -83,11 +57,31 @@ const Certifications: React.FC = () => {
                     <div className="p-3 rounded-xl bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
                       <CertificateIcon className="w-6 h-6" />
                     </div>
-                    {/* Optional: Add a 'Verified' badge or similar if desired */}
+                    {cert.link && (
+                      <a
+                        href={cert.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                        title="View Certificate"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                          <polyline points="15 3 21 3 21 9"></polyline>
+                          <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                      </a>
+                    )}
                   </div>
 
                   <h3 className="text-lg font-bold text-slate-800 dark:text-neutral-100 mb-2 leading-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
-                    {title}
+                    {cert.link ? (
+                      <a href={cert.link} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                        {cert.title}
+                      </a>
+                    ) : (
+                      cert.title
+                    )}
                   </h3>
 
                   <div className="mt-auto pt-4 border-t border-slate-100 dark:border-neutral-900">
@@ -95,7 +89,7 @@ const Certifications: React.FC = () => {
                       Issued by
                     </p>
                     <p className="text-sm font-medium text-slate-700 dark:text-neutral-300">
-                      {issuer}
+                      {cert.issuer}
                     </p>
                   </div>
                 </div>
@@ -103,8 +97,8 @@ const Certifications: React.FC = () => {
             </motion.div>
           );
         })}
-      </motion.div>
-    </Section>
+      </motion.div >
+    </Section >
   );
 };
 

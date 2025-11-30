@@ -27,31 +27,6 @@ const Achievements: React.FC = () => {
     },
   };
 
-  const parseAchievement = (achievementString: string) => {
-    // Split by " - " or " – " (en dash) to separate title and description
-    // We look for the FIRST occurrence to separate the main title from the rest
-    const separators = [' - ', ' – '];
-    let splitIndex = -1;
-    let separatorLength = 0;
-
-    // Find the first separator that appears
-    for (const sep of separators) {
-      const idx = achievementString.indexOf(sep);
-      if (idx !== -1 && (splitIndex === -1 || idx < splitIndex)) {
-        splitIndex = idx;
-        separatorLength = sep.length;
-      }
-    }
-
-    if (splitIndex !== -1) {
-      const title = achievementString.substring(0, splitIndex).trim();
-      const description = achievementString.substring(splitIndex + separatorLength).trim();
-      return { title, description };
-    }
-
-    return { title: achievementString, description: '' };
-  };
-
   return (
     <Section id="achievements" title="Achievements">
       <motion.div
@@ -62,8 +37,6 @@ const Achievements: React.FC = () => {
         viewport={{ once: true, amount: 0.1 }}
       >
         {portfolioData.achievements.map((item, index) => {
-          const { title, description } = parseAchievement(item);
-
           return (
             <motion.div
               key={index}
@@ -85,15 +58,36 @@ const Achievements: React.FC = () => {
                     <div className="p-3 rounded-xl bg-amber-100 dark:bg-amber-900/20 text-amber-600 dark:text-amber-500 group-hover:bg-amber-500 group-hover:text-white transition-colors duration-300">
                       <TrophyIcon className="w-6 h-6" />
                     </div>
+                    {item.link && (
+                      <a
+                        href={item.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-slate-400 hover:text-amber-600 dark:hover:text-amber-500 transition-colors"
+                        title="View Certificate/Badge"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                          <polyline points="15 3 21 3 21 9"></polyline>
+                          <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                      </a>
+                    )}
                   </div>
 
                   <h3 className="text-lg font-bold text-slate-800 dark:text-neutral-100 mb-3 leading-tight group-hover:text-amber-600 dark:group-hover:text-amber-500 transition-colors duration-300">
-                    {title}
+                    {item.link ? (
+                      <a href={item.link} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                        {item.title}
+                      </a>
+                    ) : (
+                      item.title
+                    )}
                   </h3>
 
-                  {description && (
+                  {item.description && (
                     <p className="text-sm text-slate-600 dark:text-neutral-400 leading-relaxed">
-                      {description}
+                      {item.description}
                     </p>
                   )}
                 </div>
@@ -101,8 +95,8 @@ const Achievements: React.FC = () => {
             </motion.div>
           );
         })}
-      </motion.div>
-    </Section>
+      </motion.div >
+    </Section >
   );
 };
 
