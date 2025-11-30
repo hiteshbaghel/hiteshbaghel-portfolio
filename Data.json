@@ -90,7 +90,7 @@
         "Render"
       ],
       "links": {
-        "demo": "#",
+        "demo": "https://skillsyncai.vercel.app/",
         "github": "https://github.com/hiteshbaghel/SkillSyncAI"
       },
       "image": "/skillsync.png"
@@ -113,7 +113,7 @@
         "Render"
       ],
       "links": {
-        "demo": "#",
+        "demo": "https://bytewise24.vercel.app/",
         "github": "https://github.com/hiteshbaghel/ByteWise"
       },
       "image": "/bytewise.png"
