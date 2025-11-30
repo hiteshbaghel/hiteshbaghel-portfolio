@@ -1,19 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import About from './components/About';
-import Skills from './components/Skills';
-import Projects from './components/Projects';
-import Education from './components/Education';
-import Achievements from './components/Achievements';
-import Certifications from './components/Certifications';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
 import { SmoothScroll } from './components/SmoothScroll';
 import { CustomCursor } from './components/ui/CustomCursor';
-
+import { Sidebar } from './components/Sidebar';
 import { AnimatePresence } from 'framer-motion';
 import { Preloader } from './components/Preloader';
+
+// Lazy load non-critical sections
+const About = lazy(() => import('./components/About'));
+const Skills = lazy(() => import('./components/Skills'));
+const Projects = lazy(() => import('./components/Projects'));
+const Education = lazy(() => import('./components/Education'));
+const Achievements = lazy(() => import('./components/Achievements'));
+const Certifications = lazy(() => import('./components/Certifications'));
+const Contact = lazy(() => import('./components/Contact'));
 
 const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -63,20 +65,24 @@ const App: React.FC = () => {
   return (
     <SmoothScroll>
       <CustomCursor />
+
       <AnimatePresence mode="wait">
-        {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
+        {isLoading && <Preloader theme={theme} onComplete={() => setIsLoading(false)} />}
       </AnimatePresence>
       <div className="font-sans antialiased text-slate-800 dark:text-neutral-300 transition-colors duration-300 min-h-screen flex flex-col">
         <Header theme={theme} toggleTheme={() => setTheme(theme === 'light' ? 'dark' : 'light')} />
+        <Sidebar />
         <main className="flex-grow w-full">
           <Hero />
-          <About />
-          <Skills />
-          <Projects />
-          <Education />
-          <Achievements />
-          <Certifications />
-          <Contact />
+          <Suspense fallback={<div className="h-screen w-full flex items-center justify-center">Loading...</div>}>
+            <About />
+            <Skills />
+            <Projects />
+            <Education />
+            <Achievements />
+            <Certifications />
+            <Contact />
+          </Suspense>
         </main>
         <Footer />
       </div>

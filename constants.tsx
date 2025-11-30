@@ -1,5 +1,6 @@
 
 import React from 'react';
+import portfolioJson from './Data.json';
 
 // --- ICONS ---
 // Using simple SVG components for icons
@@ -137,6 +138,13 @@ export const DownloadIcon = createIcon(
   </>
 );
 
+export const CopyIcon = createIcon(
+  <>
+    <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+    <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+  </>
+);
+
 export const CheckIcon = createIcon(<path d="M20 6 9 17l-5-5" />);
 
 export const LightbulbIcon = createIcon(
@@ -154,85 +162,29 @@ export const LightbulbIcon = createIcon(
 
 // --- PORTFOLIO DATA ---
 
-export const portfolioData = {
-  name: "Hitesh Baghel",
-  title: "Java Backend Developer",
-  description: "Backend Engineer skilled in building scalable and efficient applications using Java, Spring Boot, and MySQL. Hands-on experience in API development, database management, and system integration through academic and personal projects. Strong problem-solving abilities with solid understanding of DSA, OOP, and software engineering principles. Enthusiastic about applying technical expertise to impactful projects while continuously learning.",
-  about: {
-    summary: "Hello! I'm Hitesh Baghel, a backend-focused developer passionate about building scalable and efficient applications. My journey into software engineering is driven by a desire to solve complex problems and create impactful digital solutions using Java, Spring Boot, and MySQL. With hands-on experience in API development, database management, and system integration from academic and personal projects, I have a strong foundation in Object-Oriented Programming, Data Structures, and core software engineering principles. I am enthusiastic about applying my technical expertise to real-world challenges and am committed to continuous learning and growth in the tech industry.",
-  },
-  contact: {
-    email: "hiteshbaghel03@gmail.com",
-    github: "https://github.com/hiteshbaghel",
-    linkedin: "https://in.linkedin.com/in/hiteshbaghel",
-    leetcode: "https://leetcode.com/u/hiteshbaghel/",
-  },
-  skills: [
-    { name: 'Java', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" /> },
-    { name: 'Spring Boot', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring Boot" /> },
-    { name: 'Hibernate', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hibernate/hibernate-original.svg" alt="Hibernate" /> },
-    { name: 'MySQL', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" /> },
-    { name: 'React', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" /> },
-    { name: 'JavaScript', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" /> },
-    { name: 'HTML5', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" /> },
-    { name: 'CSS3', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" /> },
-    { name: 'Tailwind', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind" /> },
-    { name: 'Git', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" /> },
-    { name: 'Docker', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" /> },
-    { name: 'C++', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" /> },
-    { name: 'Postman', icon: <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="Postman" /> },
-    { name: 'JUnit', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/junit/junit-original.svg" alt="JUnit" /> },
-  ],
-  projects: [
-    {
-      title: 'SkillSyncAI – AI Powered Placement Preparation Platform',
-      description: 'Designed and implemented a full-stack platform with AI-driven mock interviews, quiz generation, ML-based placement prediction, leaderboard & analytics. Enhanced placement readiness for students.',
-      tags: ['AI/ML', 'Full-Stack', 'EdTech'],
-      stack: ['React', 'Java', 'Spring Boot', 'MySQL', 'Vercel', 'Render'],
-      links: {
-        demo: '#', // Add your actual demo link here
-        github: 'https://github.com/hiteshbaghel/SkillSyncAI', // Add your actual github link here
-      }
-    },
-    {
-      title: 'ByteWise - A Toolkit for Engineering Success',
-      description: 'Engineered a comprehensive academic toolkit with semester resources, Razorpay payments, certified course showcase, and admin dashboard with CRUD operations and analytics.',
-      tags: ['Full-Stack', 'Academic Tool', 'E-commerce'],
-      stack: ['React', 'Java', 'Spring Boot', 'MySQL', 'Vercel', 'Render'],
-      links: {
-        demo: '#', // Add your actual demo link here
-        github: 'https://github.com/hiteshbaghel/ByteWise', // Add your actual github link here
-      }
-    }
-  ],
-  education: [
-    {
-      degree: 'B.Tech in Computer Science Engineering',
-      institution: 'Mahakal Institute of Technology, Ujjain',
-      duration: 'Sep 2022 - Jun 2026',
-      icon: <DesktopIcon />,
-    },
-    {
-      degree: 'Intermediate (Higher Secondary Education)',
-      institution: 'Padmaja Higher Secondary School, Dewas',
-      duration: 'Jun 2021 - May 2022',
-      icon: <GraduationCapIcon />,
-    },
-    {
-      degree: 'Matriculation (Secondary Education)',
-      institution: 'The Guardian High School, Dewas',
-      duration: 'Jun 2019 - May 2020',
-      icon: <GraduationCapIcon />,
-    },
-  ],
-  achievements: [
-    "Google Cloud Arcade Facilitator Cohort 2 (2025) - Selected for facilitator program, mentoring peers in cloud-native application deployment.",
-    "ProjectExpo 4.0, MIT Ujjain (2025) - First Place Winner & Cash Prize for innovative project showcasing technical skills and problem-solving.",
-    "Codathon, MIT Ujjain – Recognized as Top Performer in competitive coding event demonstrating strong algorithmic thinking.",
-  ],
-  certifications: [
-    "C++ & Java, Database & MySQL - AK Soft",
-    "Java, Spring 6 & Spring Boot 3 – Telusko (Udemy)",
-    "Java Developer Internship - Codsoft",
-  ],
+const iconMap: { [key: string]: React.ReactNode } = {
+  DesktopIcon: <DesktopIcon />,
+  GraduationCapIcon: <GraduationCapIcon />,
 };
+
+export const portfolioData = {
+  ...portfolioJson,
+  skills: portfolioJson.skills.map((skill) => ({
+    name: skill.name,
+    icon: <img src={skill.iconUrl} alt={skill.name} />,
+  })),
+  education: portfolioJson.education.map((edu) => ({
+    ...edu,
+    icon: iconMap[edu.iconName] || <GraduationCapIcon />,
+  })),
+};
+
+export const navCategories = [
+  { id: 'about', label: 'About', href: '#about', icon: <UserIcon /> },
+  { id: 'skills', label: 'Skills', href: '#skills', icon: <CodeIcon /> },
+  { id: 'projects', label: 'Projects', href: '#projects', icon: <FolderKanbanIcon /> },
+  { id: 'education', label: 'Education', href: '#education', icon: <GraduationCapIcon /> },
+  { id: 'achievements', label: 'Achievements', href: '#achievements', icon: <TrophyIcon /> },
+  { id: 'certifications', label: 'Certifications', href: '#certifications', icon: <CertificateIcon /> },
+  { id: 'contact', label: 'Lets Connect', href: '#contact', icon: <PhoneIcon /> },
+];

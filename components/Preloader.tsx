@@ -1,11 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
-export const Preloader = ({ onComplete }: { onComplete: () => void }) => {
+const words = ["Think", "Build"];
+
+interface PreloaderProps {
+    onComplete: () => void;
+    theme: 'light' | 'dark';
+}
+
+export const Preloader: React.FC<PreloaderProps> = ({ onComplete, theme }) => {
     const [count, setCount] = useState(0);
+    const [currentWordIndex, setCurrentWordIndex] = useState(0);
+
+    // Inverse theme logic:
+    // If website is dark, preloader is light (white bg, black text)
+    // If website is light, preloader is dark (black bg, white text)
+    const isPreloaderDark = theme === 'light';
+
+    const bgColor = isPreloaderDark ? 'bg-neutral-950' : 'bg-slate-50';
+    const textColor = isPreloaderDark ? 'text-white' : 'text-slate-900';
+    const subTextColor = isPreloaderDark ? 'text-neutral-400' : 'text-slate-500';
+    const shutterColor = isPreloaderDark ? 'bg-neutral-950' : 'bg-slate-50';
 
     useEffect(() => {
-        const duration = 1800;
+        const duration = 2000;
         const steps = 100;
         const intervalTime = duration / steps;
 
@@ -21,69 +39,76 @@ export const Preloader = ({ onComplete }: { onComplete: () => void }) => {
     }, []);
 
     useEffect(() => {
+        // Cycle words based on progress
+        const wordChangeInterval = setInterval(() => {
+            setCurrentWordIndex((prev) => (prev + 1) % words.length);
+        }, 800);
+
         if (count === 100) {
+            clearInterval(wordChangeInterval);
+            setCurrentWordIndex(words.length - 1); // Ensure it ends on "Launch" or similar
             const timeout = setTimeout(() => {
                 onComplete();
-            }, 800);
+            }, 600);
             return () => clearTimeout(timeout);
         }
+
+        return () => clearInterval(wordChangeInterval);
     }, [count, onComplete]);
 
     return (
         <motion.div
-            initial={{ y: 0 }}
-            exit={{
-                y: '-100%',
-                scale: 1.1,
-                filter: "blur(10px)",
-                transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] }
-            }}
-            className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-slate-50 dark:bg-neutral-950 text-slate-900 dark:text-white overflow-hidden"
+            className="fixed inset-0 z-[100] flex items-center justify-center"
+            initial="initial"
+            exit="exit"
         >
-            <div className="flex items-center gap-4 md:gap-8 mb-8">
-                <motion.span
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.2, duration: 0.5 }}
-                    className="text-3xl md:text-5xl font-light tracking-wider text-slate-800 dark:text-neutral-300"
-                >
-                    Think
-                </motion.span>
-
-                <motion.div
-                    initial={{ scale: 0, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    transition={{ delay: 0.4, duration: 0.5 }}
-                    className="h-2 w-2 rounded-full bg-slate-800 dark:bg-neutral-300"
-                />
-
-                <motion.span
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.6, duration: 0.5 }}
-                    className="text-3xl md:text-5xl font-light tracking-wider text-slate-800 dark:text-neutral-300"
-                >
-                    Build
-                </motion.span>
-            </div>
-
-            <div className="relative flex flex-col items-center">
-                <motion.span
-                    className="text-6xl md:text-8xl font-bold tracking-tighter tabular-nums text-slate-900 dark:text-white"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                >
-                    {count}%
-                </motion.span>
-            </div>
-
+            {/* Content Layer */}
             <motion.div
-                className="absolute bottom-0 left-0 h-1 bg-indigo-500 dark:bg-white"
-                initial={{ width: "0%" }}
-                animate={{ width: `${count}%` }}
-                transition={{ ease: "linear" }}
-            />
+                className={`absolute z-20 flex flex-col items-center justify-center ${textColor}`}
+                exit={{ opacity: 0, transition: { duration: 0.3 } }}
+            >
+                <div className="overflow-hidden mb-4">
+                    <motion.p
+                        key={currentWordIndex}
+                        initial={{ y: "100%" }}
+                        animate={{ y: 0 }}
+                        exit={{ y: "-100%" }}
+                        transition={{ duration: 0.3, ease: "easeOut" }}
+                        className="text-4xl md:text-6xl font-bold tracking-tighter uppercase"
+                    >
+                        {words[currentWordIndex]}
+                    </motion.p>
+                </div>
+                <div className="overflow-hidden">
+                    <motion.span
+                        className="block text-6xl md:text-8xl font-bold tracking-tighter tabular-nums leading-none"
+                        initial={{ y: "100%" }}
+                        animate={{ y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+                    >
+                        {count}%
+                    </motion.span>
+                </div>
+            </motion.div>
+
+            {/* Shutter Columns */}
+            <div className="absolute inset-0 z-10 flex w-full h-full">
+                {[...Array(5)].map((_, i) => (
+                    <motion.div
+                        key={i}
+                        className={`h-full w-1/5 ${shutterColor}`}
+                        initial={{ y: 0 }}
+                        exit={{
+                            y: "-100%",
+                            transition: {
+                                duration: 0.8,
+                                ease: [0.76, 0, 0.24, 1],
+                                delay: i * 0.1
+                            }
+                        }}
+                    />
+                ))}
+            </div>
         </motion.div>
     );
 };

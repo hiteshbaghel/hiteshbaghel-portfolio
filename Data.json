@@ -1,0 +1,152 @@
+{
+  "name": "Hitesh Baghel",
+  "title": "Java Backend Developer",
+  "description": "Backend Engineer skilled in building scalable and efficient applications using Java, Spring Boot, and MySQL. Focused on API development, database management, and solving complex problems with strong software engineering principles.",
+  "about": {
+    "summary": "Hello! I'm Hitesh Baghel, a backend-focused developer passionate about creating impactful digital solutions. My journey is driven by a desire to solve complex problems using Java, Spring Boot, and MySQL. With hands-on experience in API development and system integration from academic and personal projects, I have built a strong foundation in Object-Oriented Programming and Data Structures. I am enthusiastic about applying my technical expertise to real-world challenges and am committed to continuous learning and growth in the tech industry."
+  },
+  "contact": {
+    "email": "hiteshbaghel03@gmail.com",
+    "github": "https://github.com/hiteshbaghel",
+    "linkedin": "https://in.linkedin.com/in/hiteshbaghel",
+    "leetcode": "https://leetcode.com/u/hiteshbaghel/"
+  },
+  "skills": [
+    {
+      "name": "Java",
+      "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+    },
+    {
+      "name": "Spring Boot",
+      "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg"
+    },
+    {
+      "name": "Hibernate",
+      "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hibernate/hibernate-original.svg"
+    },
+    {
+      "name": "MySQL",
+      "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+    },
+    {
+      "name": "React",
+      "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+    },
+    {
+      "name": "JavaScript",
+      "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+    },
+    {
+      "name": "HTML5",
+      "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+    },
+    {
+      "name": "CSS3",
+      "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+    },
+    {
+      "name": "Tailwind",
+      "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
+    },
+    {
+      "name": "Git",
+      "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+    },
+    {
+      "name": "Docker",
+      "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+    },
+    {
+      "name": "C++",
+      "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"
+    },
+    {
+      "name": "Postman",
+      "iconUrl": "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg"
+    },
+    {
+      "name": "JUnit",
+      "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/junit/junit-original.svg"
+    }
+  ],
+  "projects": [
+    {
+      "title": "SkillSyncAI – AI Powered Placement Preparation Platform",
+      "description": "Designed and implemented a full-stack platform with AI-driven mock interviews, quiz generation, ML-based placement prediction, leaderboard & analytics. Enhanced placement readiness for students.",
+      "tags": [
+        "AI/ML",
+        "Full-Stack",
+        "EdTech"
+      ],
+      "stack": [
+        "React",
+        "Java",
+        "Spring Boot",
+        "MySQL",
+        "Docker",
+        "Postman",
+        "JUnit",
+        "Vercel",
+        "Render"
+      ],
+      "links": {
+        "demo": "#",
+        "github": "https://github.com/hiteshbaghel/SkillSyncAI"
+      },
+      "image": "/skillsync.png"
+    },
+    {
+      "title": "ByteWise - A Toolkit for Engineering Success",
+      "description": "Engineered a comprehensive academic toolkit with semester resources, Razorpay payments, certified course showcase, and admin dashboard with CRUD operations and analytics.",
+      "tags": [
+        "Full-Stack",
+        "Academic Tool",
+        "E-commerce"
+      ],
+      "stack": [
+        "React",
+        "Java",
+        "Spring Boot",
+        "MySQL",
+        "Postman",
+        "Vercel",
+        "Render"
+      ],
+      "links": {
+        "demo": "#",
+        "github": "https://github.com/hiteshbaghel/ByteWise"
+      },
+      "image": "/bytewise.png"
+    }
+  ],
+  "education": [
+    {
+      "degree": "B.Tech in Computer Science Engineering",
+      "institution": "Mahakal Institute of Technology, Ujjain",
+      "duration": "October 2022 - April 2026",
+      "iconName": "DesktopIcon"
+    },
+    {
+      "degree": "Intermediate (Higher Secondary Education)",
+      "institution": "Padmaja Higher Secondary School, Dewas",
+      "duration": "June 2021 - May 2022",
+      "iconName": "GraduationCapIcon"
+    },
+    {
+      "degree": "Matriculation (Secondary Education)",
+      "institution": "The Guardian High School, Dewas",
+      "duration": "June 2019 - May 2020",
+      "iconName": "GraduationCapIcon"
+    }
+  ],
+  "achievements": [
+    "Google Cloud Arcade Facilitator Cohort 2 (2025) - Selected for facilitator program, mentoring peers in cloud-native application deployment.",
+    "ProjectExpo 4.0, MIT Ujjain (2025) - First Place Winner & Cash Prize for innovative project showcasing technical skills and problem-solving.",
+    "Codathon, MIT Ujjain – Recognized as Top Performer in competitive coding event demonstrating strong algorithmic thinking."
+  ],
+  "certifications": [
+    "C++ & Java, Database & MySQL - AK Soft",
+    "Java, Spring 6 & Spring Boot 3 – Telusko (Udemy)",
+    "Java Developer Internship - Codsoft"
+  ]
+}

@@ -1,12 +1,19 @@
 import React from 'react';
 import { portfolioData, GithubIcon, LinkedinIcon, MailIcon, LeetcodeIcon } from '../constants';
+import { motion } from 'framer-motion';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="relative bg-slate-50 dark:bg-black pt-20 pb-10 overflow-hidden">
+    <footer className="relative pt-20 pb-10 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
-          <div className="space-y-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="space-y-6"
+          >
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white tracking-tight">
               Let's make something <br />
               <span className="text-indigo-600 dark:text-indigo-400">amazing together.</span>
@@ -17,20 +24,26 @@ const Footer: React.FC = () => {
             <div className="flex gap-4">
               <a
                 href={`mailto:${portfolioData.contact.email}`}
-                className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-slate-900 dark:bg-white dark:text-black rounded-full hover:bg-slate-800 dark:hover:bg-neutral-200 transition-all duration-300"
+                className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-slate-900 dark:bg-white dark:text-black rounded-full hover:bg-slate-800 dark:hover:bg-neutral-200 transition-all duration-300 transform hover:scale-105"
               >
                 Say Hello
               </a>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-2 gap-8 md:pl-20">
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="grid grid-cols-2 gap-8 md:pl-20"
+          >
             <div>
               <h3 className="text-sm font-semibold text-slate-900 dark:text-white uppercase tracking-wider mb-4">
                 Navigation
               </h3>
               <ul className="space-y-3">
-                {['About', 'Skills', 'Projects', 'Experience', 'Contact'].map((item) => (
+                {['About', 'Skills', 'Projects', 'Education', 'Contact'].map((item) => (
                   <li key={item}>
                     <a
                       href={`#${item.toLowerCase()}`}
@@ -64,17 +77,23 @@ const Footer: React.FC = () => {
                 </li>
               </ul>
             </div>
-          </div>
+          </motion.div>
         </div>
 
-        <div className="pt-8 border-t border-slate-200 dark:border-neutral-800 flex flex-col md:flex-row justify-between items-center gap-4">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5, duration: 1 }}
+          className="pt-8 border-t border-slate-200 dark:border-neutral-800 flex flex-col md:flex-row justify-between items-center gap-4"
+        >
           <p className="text-sm text-slate-600 dark:text-neutral-500">
             &copy; {new Date().getFullYear()} {portfolioData.name}. All rights reserved.
           </p>
           <p className="text-sm text-slate-500 dark:text-neutral-600">
-            Designed & Built with ❤️
+            Designed & Built by {portfolioData.name}
           </p>
-        </div>
+        </motion.div>
       </div>
 
       {/* Background decoration */}

@@ -76,7 +76,7 @@ export const CustomCursor = () => {
 
     return (
         <motion.div
-            className="fixed top-0 left-0 w-4 h-4 bg-[#D6CDB6] dark:bg-white rounded-full pointer-events-none z-[9999]"
+            className="fixed top-0 left-0 w-4 h-4 bg-[#D6CDB6] dark:bg-white rounded-full pointer-events-none z-[10000] mix-blend-difference"
             style={{
                 x: cursorX,
                 y: cursorY,
@@ -85,7 +85,7 @@ export const CustomCursor = () => {
             }}
             animate={{
                 scale: isHovering ? 3 : 1,
-                opacity: isHovering ? 0.5 : 1,
+                opacity: 1,
             }}
             transition={{ duration: 0.2 }}
         />
